@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { StatusBar } from "expo-status-bar";
 import { Ionicons } from "@expo/vector-icons";
 import GridImageView from "react-native-grid-image-viewer";
 import {
@@ -15,9 +16,9 @@ const image = {
   uri: "https://c.wallhere.com/photos/d4/d4/Star_Wars_The_Last_Jedi_Star_Wars_Kylo_Ren_movies_digital_art-1179307.jpg!d",
 };
 
-const ProfileScreen = ({ navigation }) => {
+export default function ProfileScreen({ navigation }) {
   return (
-    <ScrollView>
+    <View>
       <View style={styles.header}>
         <ImageBackground source={image} resizeMode="cover" style={styles.image}>
           <View style={styles.headerContent}>
@@ -34,7 +35,17 @@ const ProfileScreen = ({ navigation }) => {
       </View>
 
       <View style={styles.profileDetail}>
-        <View style={[styles.detailContent, { paddingRight: 10, marginRight: 5, borderRightWidth: 2, borderRightColor: "#fff" }]}>
+        <View
+          style={[
+            styles.detailContent,
+            {
+              paddingRight: 10,
+              marginRight: 5,
+              borderRightWidth: 2,
+              borderRightColor: "#fff",
+            },
+          ]}
+        >
           <Text style={styles.count}>200</Text>
           <Text style={styles.title}>Seguidores</Text>
         </View>
@@ -47,14 +58,14 @@ const ProfileScreen = ({ navigation }) => {
       <View style={styles.body}>
         <View style={styles.bodyContent}>
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={[styles.buttonOne, { marginRight: 10 }]}>
+            <TouchableOpacity onPress={() => navigation.navigate("TelaCamera")} style={[styles.buttonOne, { marginRight: 10 }]}>
               <Text style={styles.buttonOneText}>
                 <Ionicons
-                  name="add-circle-outline"
+                  name="camera-outline"
                   size={18}
                   style={{ color: "#fff" }}
                 />{" "}
-                Seguir
+                Tirar foto
               </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonTwo}>
@@ -88,9 +99,10 @@ const ProfileScreen = ({ navigation }) => {
           </View>
         </View>
       </View>
-    </ScrollView>
+      <StatusBar style="auto" />
+    </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   header: {
@@ -208,5 +220,3 @@ const styles = StyleSheet.create({
     width: 350,
   },
 });
-
-export default ProfileScreen;
