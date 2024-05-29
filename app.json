@@ -1,8 +1,4 @@
 {
-<<<<<<< Updated upstream
-  "name": "OnlyAcademy",
-  "displayName": "OnlyAcademy"
-=======
   "expo": {
     "name": "BottomTabDrawer",
     "slug": "BottomTabDrawer",
@@ -15,16 +11,6 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "plugins": [
-      [
-        "expo-media-library",
-        {
-          "photosPermission": "Permitir OnlyAcademy acessar suas fotos.",
-          "savePhotosPermission": "Permitir OnlyAcademy salvar fotos.",
-          "isAccessMediaLocationEnabled": "true"
-        }
-      ]
-    ],
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -39,7 +25,16 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
+          "recordAudioAndroid": true
+        }
+      ]
+    ]
   }
->>>>>>> Stashed changes
 }
